@@ -1,0 +1,148 @@
+<%- include('./base/header.ejs') %>
+
+<style>
+  /* ====== Global Styles ====== */
+  body {
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .signup-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .signup-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+    padding: 35px;
+    width: 100%;
+    max-width: 450px;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  .signup-card h4 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #4e73df;
+    font-weight: bold;
+  }
+
+  /* ====== Input Styles ====== */
+  .form-control {
+    border-radius: 10px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+
+  .form-control:focus {
+    border-color: #4e73df;
+    box-shadow: 0px 0px 6px rgba(78,115,223,0.6);
+  }
+
+  label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #333;
+  }
+
+  /* ====== Button Styles ====== */
+  .btn-custom {
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-signup {
+    background: #1cc88a;
+    color: #fff;
+  }
+
+  .btn-signup:hover {
+    background: #17a673;
+    transform: translateY(-2px);
+  }
+
+  .btn-login {
+    background: #e74a3b;
+    color: #fff;
+  }
+
+  .btn-login:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+  }
+
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ====== Footer ====== */
+  footer {
+    background: #343a40;
+    color: #bbb;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+  }
+
+  footer a {
+    color: #1cc88a;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<!-- ====== Sign Up Form ====== -->
+<div class="signup-container">
+  <div class="signup-card">
+    <h4>Sign Up Form</h4>
+    <form action="/add/user" method="post">
+      <div class="mb-3">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-control" name="firstName" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="lastName" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" required>
+      </div>
+
+      <input type="submit" value="Sign Up" class="btn btn-custom btn-signup w-100 mb-3">
+
+      <a href="/" class="btn btn-custom btn-login w-100">Login</a>
+    </form>
+  </div>
+</div>
+
+<!-- ====== Footer ====== -->
+<!-- <footer>
+  <p>© 2025 Your Website | Designed with ❤️ by Sartaj</p>
+  <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+</footer> -->
+
+<%- include('./base/footer.ejs') %>

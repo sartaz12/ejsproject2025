@@ -1,0 +1,124 @@
+<%- include('./base/header.ejs') %>
+<%- include('./base/nav.ejs') %>
+
+<style>
+  /* ===== Page Header ===== */
+  .page-header {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 6px;
+    width: 90%;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  /* ===== Table Styles ===== */
+  table {
+    width: 90%;
+    margin: 0 auto 40px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  table thead {
+    background: #343a40;
+    color: #fff;
+  }
+  table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 15px;
+  }
+  table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  table tbody tr:hover {
+    background: #eef6ff;
+    outline: 2px solid #007bff;   /* Outline on hover */
+    cursor: pointer;
+  }
+
+  /* ===== Student Image ===== */
+  .student-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+    transition: 0.3s;
+  }
+  .student-photo:hover {
+    transform: scale(1.1);
+    border-color: #1cc88a;
+  }
+
+  /* ===== Buttons ===== */
+  .btn {
+    padding: 8px 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+    display: inline-block;
+    margin: 2px;
+  }
+  .btn-warning {
+    background: #f6c23e;
+    border: 2px solid #dda20a;
+  }
+  .btn-warning:hover {
+    background: #dda20a;
+  }
+  .btn-danger {
+    background: #e74a3b;
+    border: 2px solid #c0392b;
+  }
+  .btn-danger:hover {
+    background: #c0392b;
+  }
+</style>
+
+<!-- ===== Page Header ===== -->
+<div class="page-header">
+  <h5>Student List</h5>
+</div>
+
+<!-- ===== Student Table ===== -->
+<table>
+  <thead>
+    <tr>
+      <th>Student Photo</th>
+      <th>Roll No</th>
+      <th>Name</th>
+      <th>Father Name</th>
+      <th>Course</th>
+      <th>Branch</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% students.forEach((student)=> { %>
+      <tr>
+        <td><img src="<%= student.studentImage %>" width="100px" height="100px"></td>
+        <td><%= student.rollNo %></td>
+        <td><%= student.studentName %></td>
+        <td><%= student.fatherName %></td>
+        <td><%= student.course %></td>
+        <td><%= student.branch %></td>
+        <td>
+          <a href="/edit/student/page/<%= student._id %>" class="btn btn-warning">Edit</a>
+          <a href="/delete/student/<%= student._id %>" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('./base/footer.ejs') %>

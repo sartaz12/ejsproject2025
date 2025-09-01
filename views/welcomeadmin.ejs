@@ -1,0 +1,164 @@
+<%- include('./base/header.ejs') %>
+
+<style>
+  /* ====== Navbar Styles ====== */
+  .navbar {
+    background: #222;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar .brand {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar ul li {
+    margin-left: 20px;
+  }
+  .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+  .navbar ul li a:hover {
+    color: #1cc88a;
+  }
+
+  /* ====== Page Header ====== */
+  .page-header {
+    background: #4e73df;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 6px;
+    width: 80%;
+    font-size: 18px;
+  }
+
+  /* ====== Table Styles ====== */
+  table {
+    width: 80%;
+    margin: 0 auto 40px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  table thead {
+    background: #1cc88a;
+    color: white;
+  }
+  table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  table tbody tr:hover {
+    background: #f1f1f1;
+  }
+
+  /* ====== Button Styles ====== */
+  .btn {
+    padding: 8px 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  .btn-warning {
+    background: #f6c23e;
+  }
+  .btn-warning:hover {
+    background: #dda20a;
+  }
+  .btn-danger {
+    background: #e74a3b;
+  }
+  .btn-danger:hover {
+    background: #c0392b;
+  }
+
+  /* ====== Footer ====== */
+  footer {
+    background: #222;
+    color: #bbb;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+  }
+  footer a {
+    color: #1cc88a;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<!-- ====== Navbar ====== -->
+<nav class="navbar">
+  <a href="#" class="brand">RDEC</a>
+  <ul>
+    <li><a href="/student/add/page">Add Student</a></li>
+    <li><a href="/student/list">List Students</a></li>
+  </ul>
+</nav>
+
+<!-- ====== Page Header ====== -->
+<div class="page-header">
+  <h5>Student List</h5>
+</div>
+
+<!-- ====== Student Table ====== -->
+<table>
+  <thead>
+    <tr>
+      <th>Student Photo</th>
+      <th>Roll No</th>
+      <th>Name</th>
+      <th>Father Name</th>
+      <th>Course</th>
+      <th>Branch</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% students.forEach((student)=> { %>
+      <tr>
+        <td><img src="<%= student.studentImage %>"  width="100px" height="100px"></td>
+        <td><%= student.rollNo %></td>
+        <td><%= student.studentName %></td>
+        <td><%= student.fatherName %></td>
+        <td><%= student.course %></td>
+        <td><%= student.branch %></td>
+        <td>
+          <a href="/edit/student/page/<%= student._id %>" class="btn btn-warning">Edit</a>
+          <a href="/delete/student/<%= student._id %>" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<!-- ====== Footer ====== -->
+<!-- <footer>
+  <p>© 2025 RDEC | Designed with ❤️ by Sartaj</p>
+  <p><a href="#">Privacy Policy</a> | <a href="#">Terms</a></p>
+</footer> -->
+
+<%- include('./base/footer.ejs') %>

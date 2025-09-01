@@ -1,0 +1,117 @@
+<%- include('./base/header.ejs') %>
+
+<style>
+  /* ====== Login Page Styles ====== */
+  body {
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  .login-card h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4e73df;
+    font-weight: bold;
+  }
+
+  .form-control {
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .btn-custom {
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .btn-login {
+    background: #1cc88a;
+    color: #fff;
+  }
+
+  .btn-login:hover {
+    background: #17a673;
+  }
+
+  .btn-signup {
+    background: #e74a3b;
+    color: #fff;
+  }
+
+  .btn-signup:hover {
+    background: #c0392b;
+  }
+
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ====== Footer Styles ====== */
+  footer {
+    background: #343a40;
+    color: #bbb;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+  }
+
+  footer a {
+    color: #1cc88a;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<!-- ====== Login Form ====== -->
+<div class="login-container">
+  <div class="login-card">
+    <h4>Login Form</h4>
+    <form action="/login" method="post">
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" required>
+      </div>
+
+      <input type="submit" value="Login" class="btn btn-custom btn-login w-100 mb-3">
+
+      <a href="/user/signup" class="btn btn-custom btn-signup w-100">Sign Up</a>
+    </form>
+  </div>
+</div>
+
+<!-- ====== Footer ====== -->
+<!-- <footer>
+  <p>© 2025 Your Website | Designed with ❤️ by Sartaj</p>
+  <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+</footer> -->
+
+<%- include('./base/footer.ejs') %>

@@ -1,0 +1,121 @@
+<%- include('./base/header.ejs') %>
+<%- include('./base/nav.ejs') %>
+
+<style>
+  /* ===== Page Header ===== */
+  .page-header {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 6px;
+    width: 60%;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  /* ===== Form Container ===== */
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .student-form {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 500px;
+    animation: fadeIn 0.7s ease-in-out;
+  }
+
+  .student-form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: #333;
+  }
+
+  /* ===== Input Fields ===== */
+  .student-form input[type="text"],
+  .student-form input[type="file"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 2px solid #ddd;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+  }
+
+  .student-form input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0px 0px 6px rgba(0,123,255,0.5);
+  }
+
+  /* ===== Submit Button ===== */
+  .btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #f6c23e;
+    color: #000;
+    font-weight: bold;
+    border: 2px solid #dda20a;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .btn-submit:hover {
+    background: #dda20a;
+    color: #fff;
+  }
+
+  /* ===== Animation ===== */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<!-- ===== Page Header ===== -->
+<div class="page-header">
+  <h5>Add Student</h5>
+</div>
+
+<!-- ===== Student Form ===== -->
+<div class="form-container">
+  <form action="/add/student" method="post" enctype="multipart/form-data" class="student-form">
+    
+    <label>Roll No</label>
+    <input type="text" name="rollNo" required>
+
+    <label>Student Name</label>
+    <input type="text" name="studentName" required>
+
+    <label>Father Name</label>
+    <input type="text" name="fatherName" required>
+
+    <label>Course</label>
+    <input type="text" name="course" required>
+
+    <label>Branch</label>
+    <input type="text" name="branch" required>
+
+    <label>Admission Year</label>
+    <input type="text" name="yearOfAdmisson" required>
+
+    <label>Select Student Image</label>
+    <input type="file" name="studentImage" required>
+
+    <button type="submit" class="btn-submit">Add Student</button>
+  </form>
+</div>
+
+<%- include('./base/footer.ejs') %>
