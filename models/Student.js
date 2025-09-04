@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const studentSchema = new Schema({
     rollNo: { type: String, required: true },
     studentName: { type: String },
+    motherName: { type: String },
     fatherName: { type: String, required: true },
     course: { type: String, required: true },
     branch: { type: String },
